@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour {
 			growthLeft = growthLeft - new Vector3(0.1f,0.1f,0.1f)*0.1f;
 		}
 	}
+	void MoveTowards ( Vector3 point ) {
+		rigidbody.AddForce(point * Speed * Time.deltaTime);
+	}
 	void OnTriggerEnter ( Collider other) {
 		//Destroy(other.gameObject);
 		if ( other.gameObject.tag == "pickup" ) {
