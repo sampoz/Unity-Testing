@@ -12,8 +12,14 @@ public class GroundScript : MonoBehaviour {
 		
 	}
 	void OnTouchDown( Vector3 hit ) {
-		GameObject gos = GameObject.FindWithTag("player"); 
-		Debug.Log ("Sending hitpoint " + hit);
-		gos.SendMessage ("MoveTowards", hit);
+		SendMove (hit);
+	}
+	void OnTouchStay( Vector3 hit ) {
+		SendMove (hit);
+	}
+	void SendMove( Vector3 hit ) {
+				GameObject gos = GameObject.FindWithTag ("player"); 
+				Debug.Log ("Sending hitpoint " + hit);
+				gos.SendMessage ("MoveTowards", hit);
 	}
 }
