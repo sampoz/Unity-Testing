@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	public void MoveTowards ( Vector3 point ) {
-		rigidbody.AddForce(point * Speed * Time.deltaTime * sensitivity);
+		Debug.Log ("about to move towards " + point * Speed * Time.deltaTime * sensitivity);
+		rigidbody.AddForce((point - transform.position) * Speed * Time.deltaTime * sensitivity);
 	}
 	void OnTriggerEnter ( Collider other) {
 		//Destroy(other.gameObject);
